@@ -18,7 +18,12 @@ class SystemLog implements  SystemLogInterface
     public function generateLogs( $message )
     {
         $msg = $message;
-        $this->logrepo->saveLog($msg);
-        return 'This is an output log from system Created';
+       return $this->logrepo->saveLog($msg);
+    }
+    public function testLog(){
+        return 'This is an output log from system Created accessed via a faccade';
+    }
+    public function countAllLogs(){
+        return $this->logrepo->logNumber();
     }
 }

@@ -2,11 +2,14 @@
 
 namespace Blog\Http\Controllers;
 
+use Blog\Facades\Logger;
+
 use Blog\Repositories\Blog\BlogRepository;
 
 use Illuminate\Http\Request;
 
 use Validator;
+
 
 use Auth;
 
@@ -38,9 +41,10 @@ class BlogController extends Controller
      */
     public function index()
     {
-        //get page blogs
+        //facade implementation
+        $facade = Logger::countAllLogs();
         $allBlogs = $this->blogRepo->getAllBlogs();
-        return view('home', compact('allBlogs', 'logs'));
+        return view('home', compact('allBlogs', 'logs','facade'));
     }
 
     /**

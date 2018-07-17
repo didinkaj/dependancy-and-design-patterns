@@ -21,4 +21,8 @@ class UserLog implements  SystemLogInterface
         $this->logrepo->saveLog($msg);
         return 'This is an output log from user';
     }
+
+    public function testLog(){
+        return 'This is an output log from system Created';
+    }
 }

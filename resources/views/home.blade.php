@@ -1,5 +1,6 @@
 @extends('layouts.main')
 @section('content')
+   All Logs <span style="color: red">{{$facade}}</span>
     @foreach($allBlogs as $blog)
         <div class="card mb-4">
             @if($blog->deleted_at != null)

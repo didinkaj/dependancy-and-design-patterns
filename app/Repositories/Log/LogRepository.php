@@ -32,6 +32,9 @@ class LogRepository
             ];
         return $this->log->create($data);
     }
+    public function logNumber(){
+        return $this->log->all()->count();
+    }
 
 
 }

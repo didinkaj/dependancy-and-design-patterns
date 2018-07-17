@@ -26,16 +26,16 @@
                         <form method="POST" action="/wipeBlog/{{$blog->id}}" class="float-md-right">
                             @csrf
                             <button type="submit" class="btn btn-default btn-xs waves-effect waves-classic"
-                                    style="color:blue">
+                                    style="color:red">
                                 <i class="icon md-delete" aria-hidden="true"></i>Delete
                             </button>
                         </form>
                     </div>
                     <div class="col-md-6">
-                        <form method="POST" action="/restoreBlog/{{$blog->id}}" class="float-md-right">
+                        <form method="POST" action="/restoreBlog/{{$blog->id}}" class="float-md-right ">
                             @csrf
-                            <button type="submit" class="btn btn-default btn-xs waves-effect waves-classic"
-                                    style="color: red;">
+                            <button type="submit" class="btn btn-default  float-left"
+                                    style="color: blue;">
                                 <i class="icon md-restore" aria-hidden="true"></i>Restore
                             </button>
                         </form>

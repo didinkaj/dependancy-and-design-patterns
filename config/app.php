@@ -161,6 +161,7 @@ return [
         Blog\Providers\RouteServiceProvider::class,
         Blog\Providers\ComposerServiceProvider::class,  //service provider for providing blogs to entire appllication
         Blog\Providers\LoggingServiceProvider::class, //service provider for logging
+        Blog\Providers\MyFacadeServiceProvider::class,
 
 
     ],
@@ -211,6 +212,7 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        'SystemLog' => Blog\Logger\SystemLog::class, //system logger facade
 
     ],
 
