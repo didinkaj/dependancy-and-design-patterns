@@ -31183,7 +31183,7 @@ module.exports = function(module) {
   var Util = function ($$$1) {
     /**
      * ------------------------------------------------------------------------
-     * Private TransitionEnd Helpers
+     * Private TransitionEnd Logger
      * ------------------------------------------------------------------------
      */
     var TRANSITION_END = 'transitionend';

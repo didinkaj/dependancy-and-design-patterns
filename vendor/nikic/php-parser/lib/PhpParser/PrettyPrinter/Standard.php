@@ -856,7 +856,7 @@ class Standard extends PrettyPrinterAbstract
         return '';
     }
 
-    // Helpers
+    // Logger
 
     protected function pClassCommon(Stmt\Class_ $node, $afterClassToken) {
         return $this->pModifiers($node->flags)

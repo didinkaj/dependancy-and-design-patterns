@@ -29,8 +29,8 @@ class HomeController extends Controller
     public function index()
     {
         $allBlogs = $this->blogRepo->getAllBlogs();
-
-        return view('welcome',compact('allBlogs'));
+        $app = app();
+        return view('welcome',compact('allBlogs','app'));
     }
     /**
      * Display the specified resource.

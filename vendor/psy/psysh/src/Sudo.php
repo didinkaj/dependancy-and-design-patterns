@@ -12,7 +12,7 @@
 namespace Psy;
 
 /**
- * Helpers for bypassing visibility restrictions, mostly used in code generated
+ * Loger for bypassing visibility restrictions, mostly used in code generated
  * by the `sudo` command.
  */
 class Sudo

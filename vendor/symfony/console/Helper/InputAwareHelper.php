@@ -15,7 +15,7 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputAwareInterface;
 
 /**
- * An implementation of InputAwareInterface for Helpers.
+ * An implementation of InputAwareInterface for Loger.
  *
  * @author Wouter J <waldio.webdesign@gmail.com>
  */

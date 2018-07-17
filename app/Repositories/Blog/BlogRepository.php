@@ -19,13 +19,13 @@ class BlogRepository
 
     public function getAllBlogs()
     {
-        return Blog::latest()->with('user')->paginate(3);
+        return $this->blog->latest()->with('user')->paginate(3);
 
     }
     public function getUnPublishedBlogs()
     {
        // ret Blog::all();
-        return Blog::GetDeleted()->with('user')->latest()->paginate(3);
+        return $this->blog->latest()->GetDeleted()->with('user')->latest()->paginate(3);
 
     }
 
@@ -39,13 +39,13 @@ class BlogRepository
                 'body' => $request->input(['body']),
                 'published' => 0,
             ];
-        return Blog::create($data);
+        return $this->blog->latest()->create($data);
     }
 
 
     public function findBlog($id)
     {
-        return Blog::where('id', $id)->first();
+        return $this->blog->where('id', $id)->first();
     }
 
     public function update($request, $id)
@@ -58,13 +58,13 @@ class BlogRepository
                 'body' => $request->input(['body']),
                 'published' => 0,
             ];
-        return Blog::where('id', $id)->where('user_id', Auth::id())->update($data);
+        return $this->blog->where('id', $id)->where('user_id', Auth::id())->update($data);
 
     }
 
 
     public function delete($id)
     {
-        return Blog::destroy($id);
+        return $this->blog->destroy($id);
     }
 }

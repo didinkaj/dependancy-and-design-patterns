@@ -7,12 +7,18 @@ use Illuminate\Http\Request;
 
 use Validator;
 
-use Blog\Subscriber;
+use Blog\Repositories\Subscriber\SubscriberRepository;
 
 use Session;
 
 class SubscribeController extends Controller
 {
+    protected $subscriber;
+    public function __construct(SubscriberRepository $subscribers)
+    {
+        $this->subscriber = $subscribers;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -51,7 +57,7 @@ class SubscribeController extends Controller
                 ->withErrors($validator)
                 ->withInput();
         } else {
-            $save = Subscriber::updateOrCreate(
+            $save = $this->subscriber->updateOrCreate(
                 [ 'email' => $request->input(['email'])],
                 [
                     'email' => $request->input(['email']),

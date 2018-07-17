@@ -12,6 +12,8 @@ use Auth;
 
 use Session;
 
+use Blog\Logger\Contracts\SystemLogInterface;
+
 class BlogController extends Controller
 {
     private $blogRepo;
@@ -32,11 +34,12 @@ class BlogController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(SystemLogInterface $SystemLogInstance)
     {
         //get page blogs
         $allBlogs = $this->blogRepo->getAllBlogs();
-        return view('home', compact('allBlogs'));
+        $logs = $SystemLogInstance->generateLogs();
+        return view('home', compact('allBlogs','logs'));
     }
 
     /**

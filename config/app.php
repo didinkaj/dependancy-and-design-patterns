@@ -159,7 +159,8 @@ return [
         // Blog\Providers\BroadcastServiceProvider::class,
         Blog\Providers\EventServiceProvider::class,
         Blog\Providers\RouteServiceProvider::class,
-        Blog\Providers\ComposerServiceProvider::class,
+        Blog\Providers\ComposerServiceProvider::class,  //service provider for providing blogs to entire appllication
+        Blog\Providers\LoggingServiceProvider::class, //service provider for logging
 
 
     ],
