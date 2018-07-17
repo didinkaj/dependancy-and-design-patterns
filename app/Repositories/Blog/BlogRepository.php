@@ -1,6 +1,7 @@
 <?php
 
 namespace Blog\Repositories\Blog;
+
 use Blog\User;
 use Blog\Blog;
 use Auth;
@@ -22,9 +23,10 @@ class BlogRepository
         return $this->blog->latest()->with('user')->paginate(3);
 
     }
+
     public function getUnPublishedBlogs()
     {
-       // ret Blog::all();
+        // ret Blog::all();
         return $this->blog->latest()->GetDeleted()->with('user')->latest()->paginate(3);
 
     }
@@ -61,10 +63,19 @@ class BlogRepository
         return $this->blog->where('id', $id)->where('user_id', Auth::id())->update($data);
 
     }
-
-
     public function delete($id)
     {
         return $this->blog->destroy($id);
+    }
+
+    public function upunblish($id)
+    {
+        return $this->blog->withTrashed()->find($id)->restore();
+    }
+
+    public function wipeBlog($id)
+    {
+        return $this->blog->withTrashed()->find($id)->forceDelete();
+
     }
 }

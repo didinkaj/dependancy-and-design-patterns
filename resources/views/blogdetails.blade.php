@@ -1,7 +1,8 @@
 @extends('layouts.main')
 @section('content')
     <div class="card mb-4">
-        <div class="card-header">{{ $allBlogs->title}} <span class="float-md-right">
+        <div class="card-header">{{ $allBlogs->title}}
+            <span class="float-md-right">
 
                 <form method="POST" action="/deleteBlog/{{$allBlogs->id}}" >
                     @csrf

@@ -28,7 +28,7 @@ class LogRepository
         $data =
             [
                 'message' => $message,
-                'email' => Auth::id(),
+                'email' => Auth::user()->email,
             ];
         return $this->log->create($data);
     }

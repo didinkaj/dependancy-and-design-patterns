@@ -17,16 +17,18 @@ use Blog\Logger\Contracts\SystemLogInterface;
 class BlogController extends Controller
 {
     private $blogRepo;
+    private $logevent;
 
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct(BlogRepository $blogRepository)
+    public function __construct(BlogRepository $blogRepository, SystemLogInterface $SystemLogInstance)
     {
         $this->middleware('auth');
         $this->blogRepo = $blogRepository;
+        $this->logevent = $SystemLogInstance;
     }
 
     /**
@@ -34,12 +36,11 @@ class BlogController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(SystemLogInterface $SystemLogInstance )
+    public function index()
     {
         //get page blogs
         $allBlogs = $this->blogRepo->getAllBlogs();
-        $logs = $SystemLogInstance->generateLogs("home page Accessed");
-        return view('home', compact('allBlogs','logs'));
+        return view('home', compact('allBlogs', 'logs'));
     }
 
     /**
@@ -137,10 +138,11 @@ class BlogController extends Controller
         } else {
 
             if ($this->blogRepo->update($request, $id)) {
+                $this->logevent->generateLogs("Blog  page with title - " . $request->title . " - Editted");
                 session::flash('success', 'Blog updation Successfully ');
                 return redirect('/blog/' . $id);
             } else {
-                session::flash('error', 'Blog Task not saved, try again!');
+                session::flash('error', 'Blog  not saved, try again!');
                 return redirect('/blog/' . $id);
             }
         }
@@ -155,7 +157,12 @@ class BlogController extends Controller
     public function destroy($id)
     {
         //
+        $blog = $this->blogRepo->findBlog($id);
+
         if ($this->blogRepo->delete($id)) {
+            //logging action
+            $this->logevent->generateLogs("Blog  page with title - " . $blog->title . " - Editted");
+
             session::flash('success', 'Successfully deleted Blog!');
             return redirect('/home');
         } else {
@@ -163,9 +170,35 @@ class BlogController extends Controller
             return redirect('/home');
         }
     }
-    public function unpublished(){
+
+    public function unpublished()
+    {
         //get unpublished blogs
         $allBlogs = $this->blogRepo->getUnPublishedBlogs();
-        return view('home', compact('allBlogs'));
+        return view('deleteBlogs', compact('allBlogs'));
+    }
+
+    public function restore($id)
+    {
+        if ($this->blogRepo->upunblish($id)) {
+            session::flash('success', 'Blog Successfully restored!');
+            return redirect('/home');
+        }else {
+            session::flash('error', 'Deletion failed, please try again');
+            return redirect('/home');
+        }
+
+    }
+
+    public function wipeBlog($id)
+    {
+        if ($this->blogRepo->wipeBlog($id)) {
+            session::flash('success', 'Blog Successfully Deleted!');
+            return redirect('/home');
+        }else {
+            session::flash('error', 'Deletion failed, please try again');
+            return redirect('/home');
+        }
+
     }
 }

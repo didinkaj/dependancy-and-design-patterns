@@ -4,10 +4,11 @@
             <div class="card-header">Quick Links</div>
             <ul class="list-group">
                 <li class="list-group-item"><a href="{{url('/addBlog')}}">Add blog</a></li>
-                <li class="list-group-item"><a href="{{url('/unpublished')}}">UnPublished blogs <span
+                <li class="list-group-item"><a href="{{url('/unpublished')}}">Deleted blogs <span
                                 class="badge float-right"></span> </a></li>
                 <li class="list-group-item"><a href="#">Registered users <span
                                 class="badge float-right">{{ $allusersno }}</span></a></li>
+                <li class="list-group-item"><a href="{{url('/userLogs')}}" style="color: red">Event Logs</a> </li>
             </ul>
             @else
                 <div class="card-header">subscribe</div>

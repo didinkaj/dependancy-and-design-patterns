@@ -9,6 +9,8 @@ use Blog\Logger\SystemLog;
 
 use Blog\Logger\UserLog;
 
+use Blog\Logger\Contracts\SystemLogInterface;
+
 use Blog\Repositories\Log\LogRepository;
 
 class LoggingServiceProvider extends ServiceProvider
@@ -30,10 +32,11 @@ class LoggingServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
-        $this->app->bind('Blog\Logger\Contracts\SystemLogInterface', function ($app) {
+        //binding the interface class
+        $this->app->bind(SystemLogInterface::class, function ($app) {
             return new UserLog($app->make(LogRepository::class));
         });
+
 
         $this->app->bind(LogRepository::class, function ($app) {
             return new LogRepository($app->make(Logs::class));

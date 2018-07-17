@@ -1,7 +1,5 @@
 @extends('layouts.main')
 @section('content')
-   {{-- h2<h2> ($app)</h2>--}}
-   {{$logs}}
     @foreach($allBlogs as $blog)
         <div class="card mb-4">
             @if($blog->deleted_at != null)
