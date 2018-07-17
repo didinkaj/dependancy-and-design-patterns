@@ -34,11 +34,11 @@ class BlogController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(SystemLogInterface $SystemLogInstance)
+    public function index(SystemLogInterface $SystemLogInstance )
     {
         //get page blogs
         $allBlogs = $this->blogRepo->getAllBlogs();
-        $logs = $SystemLogInstance->generateLogs();
+        $logs = $SystemLogInstance->generateLogs("home page Accessed");
         return view('home', compact('allBlogs','logs'));
     }
 

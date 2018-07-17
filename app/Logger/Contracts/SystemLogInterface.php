@@ -3,5 +3,5 @@ namespace Blog\Logger\Contracts;
 
 Interface  SystemLogInterface
 {
-    public function generateLogs();
+    public function generateLogs($message);
 }

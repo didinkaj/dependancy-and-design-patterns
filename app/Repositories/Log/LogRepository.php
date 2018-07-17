@@ -18,18 +18,17 @@ class LogRepository
 
     public function getAllBlogs()
     {
-        return $this->log->latest()->with('user')->paginate(3);
+        return $this->log->latest()->paginate(3);
 
     }
 
 
-    public function saveLog($message,$email)
+    public function saveLog($message = null)
     {
         $data =
             [
-                'user_email' => Auth::email(),
-                'meassage' => $message,
-                'email' => $email,
+                'message' => $message,
+                'email' => Auth::id(),
             ];
         return $this->log->create($data);
     }
