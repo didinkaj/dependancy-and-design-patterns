@@ -341,6 +341,7 @@ class ComposerStaticInit3857ef14317ac7f80fe35875863d6ab6
         'Blog\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
         'Blog\\Http\\ViewComposers\\BlogComposer' => __DIR__ . '/../..' . '/app/Http/ViewComposers/BlogComposer.php',
         'Blog\\Listeners\\EventListener' => __DIR__ . '/../..' . '/app/Listeners/EventListener.php',
+        'Blog\\Logs' => __DIR__ . '/../..' . '/app/Logs.php',
         'Blog\\Mail\\SubscribersMail' => __DIR__ . '/../..' . '/app/Mail/SubscribersMail.php',
         'Blog\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'Blog\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',

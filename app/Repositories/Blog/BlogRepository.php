@@ -20,7 +20,6 @@ class BlogRepository
     public function getAllBlogs()
     {
         return Blog::latest()->with('user')->paginate(3);
-       // dd(Blog::deleted()->get());
 
     }
     public function getUnPublishedBlogs()

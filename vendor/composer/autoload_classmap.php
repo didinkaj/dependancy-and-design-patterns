@@ -27,6 +27,7 @@ return array(
     'Blog\\Http\\Middleware\\VerifyCsrfToken' => $baseDir . '/app/Http/Middleware/VerifyCsrfToken.php',
     'Blog\\Http\\ViewComposers\\BlogComposer' => $baseDir . '/app/Http/ViewComposers/BlogComposer.php',
     'Blog\\Listeners\\EventListener' => $baseDir . '/app/Listeners/EventListener.php',
+    'Blog\\Logs' => $baseDir . '/app/Logs.php',
     'Blog\\Mail\\SubscribersMail' => $baseDir . '/app/Mail/SubscribersMail.php',
     'Blog\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',
     'Blog\\Providers\\AuthServiceProvider' => $baseDir . '/app/Providers/AuthServiceProvider.php',
