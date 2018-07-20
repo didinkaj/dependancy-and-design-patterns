@@ -322,6 +322,7 @@ class ComposerStaticInit3857ef14317ac7f80fe35875863d6ab6
     public static $classMap = array (
         'Blog\\Blog' => __DIR__ . '/../..' . '/app/Blog.php',
         'Blog\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
+        'Blog\\CustomBuilder\\Logger\\GenerateLogx' => __DIR__ . '/../..' . '/app/Logger/CustomBuilder/GenerateLog.php',
         'Blog\\Events\\Event' => __DIR__ . '/../..' . '/app/Events/Event.php',
         'Blog\\Events\\SendMail' => __DIR__ . '/../..' . '/app/Events/SendMail.php',
         'Blog\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
@@ -343,7 +344,9 @@ class ComposerStaticInit3857ef14317ac7f80fe35875863d6ab6
         'Blog\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
         'Blog\\Http\\ViewComposers\\BlogComposer' => __DIR__ . '/../..' . '/app/Http/ViewComposers/BlogComposer.php',
         'Blog\\Listeners\\EventListener' => __DIR__ . '/../..' . '/app/Listeners/EventListener.php',
+        'Blog\\Logger\\AllLogs' => __DIR__ . '/../..' . '/app/Logger/AllLogs.php',
         'Blog\\Logger\\Contracts\\SystemLogInterface' => __DIR__ . '/../..' . '/app/Logger/Contracts/SystemLogInterface.php',
+        'Blog\\Logger\\Factory\\LoggingFactory' => __DIR__ . '/../..' . '/app/Logger/Factory/LoggingFactory.php',
         'Blog\\Logger\\SystemLog' => __DIR__ . '/../..' . '/app/Logger/SystemLog.php',
         'Blog\\Logger\\UserLog' => __DIR__ . '/../..' . '/app/Logger/UserLog.php',
         'Blog\\Logs' => __DIR__ . '/../..' . '/app/Logs.php',

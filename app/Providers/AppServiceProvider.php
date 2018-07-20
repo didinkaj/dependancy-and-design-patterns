@@ -24,5 +24,10 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         //
+        $this->app->singleton('Blog\Repositories\Log\LogRepositoryInterface', function () {
+            $baseRepo = new \Blog\Repositories\Log\LogRepository(new \Blog\Logs());
+            $cachingRepo = new \Blog\Repositories\Log\CachingLogRepository($baseRepo, $this->app['cache.store']);
+            return $cachingRepo;
+        });
     }
 }

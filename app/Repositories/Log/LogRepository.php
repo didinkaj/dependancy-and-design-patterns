@@ -1,11 +1,15 @@
 <?php
 
 namespace Blog\Repositories\Log;
+
+use Blog\Repositories\LogRepositoryInterface;
+
 use Blog\Logs;
+
 use Auth;
 
 
-class LogRepository
+class LogRepository implements LogRepositoryInterface
 {
     public $log;
 
@@ -32,7 +36,9 @@ class LogRepository
             ];
         return $this->log->create($data);
     }
-    public function logNumber(){
+
+    public function logNumber()
+    {
         return $this->log->all()->count();
     }
 

@@ -1,7 +1,9 @@
 @extends('layouts.main')
 @section('content')
+    <h5>test {{$alllogs}}</h5>
     @foreach($allBlogs as $blog)
         <div class="card mb-4">
+
             <div class="card-header"><a href="{{url('/showblog/'.$blog->id)}}" style="color: brown">{{ $blog->title}} </a></div>
 
             <div class="card-body">

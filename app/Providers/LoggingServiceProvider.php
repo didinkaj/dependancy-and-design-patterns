@@ -32,13 +32,17 @@ class LoggingServiceProvider extends ServiceProvider
     public function register()
     {
         //binding the interface class
-        $this->app->bind(SystemLogInterface::class, function ($app) {
-            return new UserLog($app->make(LogRepository::class));
-        });
+        $this->app->bind(Logs::class);
 
         $this->app->bind(LogRepository::class, function ($app) {
             return new LogRepository($app->make(Logs::class));
         });
-        $this->app->bind(Logs::class, Logs::class);
+
+        $this->app->bind(SystemLogInterface::class, function ($app) {
+            return new UserLog($app->make(LogRepository::class));
+        });
+
+
+
     }
 }

@@ -8,6 +8,7 @@ $baseDir = dirname($vendorDir);
 return array(
     'Blog\\Blog' => $baseDir . '/app/Blog.php',
     'Blog\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
+    'Blog\\CustomBuilder\\Logger\\GenerateLogx' => $baseDir . '/app/Logger/CustomBuilder/GenerateLog.php',
     'Blog\\Events\\Event' => $baseDir . '/app/Events/Event.php',
     'Blog\\Events\\SendMail' => $baseDir . '/app/Events/SendMail.php',
     'Blog\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
@@ -29,7 +30,9 @@ return array(
     'Blog\\Http\\Middleware\\VerifyCsrfToken' => $baseDir . '/app/Http/Middleware/VerifyCsrfToken.php',
     'Blog\\Http\\ViewComposers\\BlogComposer' => $baseDir . '/app/Http/ViewComposers/BlogComposer.php',
     'Blog\\Listeners\\EventListener' => $baseDir . '/app/Listeners/EventListener.php',
+    'Blog\\Logger\\AllLogs' => $baseDir . '/app/Logger/AllLogs.php',
     'Blog\\Logger\\Contracts\\SystemLogInterface' => $baseDir . '/app/Logger/Contracts/SystemLogInterface.php',
+    'Blog\\Logger\\Factory\\LoggingFactory' => $baseDir . '/app/Logger/Factory/LoggingFactory.php',
     'Blog\\Logger\\SystemLog' => $baseDir . '/app/Logger/SystemLog.php',
     'Blog\\Logger\\UserLog' => $baseDir . '/app/Logger/UserLog.php',
     'Blog\\Logs' => $baseDir . '/app/Logs.php',

@@ -2,6 +2,8 @@
 
 namespace Blog\Http\Controllers;
 
+use Blog\Logger\ButtonBuilder;
+use Blog\Logger\Factory\LoggingFactory;
 
 use Blog\Repositories\Blog\BlogRepository;
 
@@ -30,7 +32,17 @@ class HomeController extends Controller
     {
         $allBlogs = $this->blogRepo->getAllBlogs();
         $app = app();
-        return view('welcome',compact('allBlogs','app'));
+        //sample of factory implementation
+       $factory = new LoggingFactory();
+       $alllogs = $factory->viewLog('all')->get();
+       //builder
+       /* $buttonBuilder = new ButtonBuilder();
+        $buttonwithRedColor=  $buttonBuilder->setColor('red')->build();
+        $buttonwithRedColorHeitht=$buttonBuilder->setColor('red')->setHeight(900)->build();*/
+
+
+
+        return view('welcome',compact('allBlogs','app','alllogs'));
     }
     /**
      * Display the specified resource.

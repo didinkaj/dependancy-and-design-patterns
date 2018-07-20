@@ -1,4 +1,5 @@
 <?php
+
 namespace Blog\Logger;
 
 use Blog\Logger\Contracts\SystemLogInterface;
@@ -6,9 +7,9 @@ use Blog\Logger\Contracts\SystemLogInterface;
 use Blog\Repositories\Log\LogRepository;
 
 
-class UserLog implements  SystemLogInterface
+class UserLog implements SystemLogInterface
 {
-    public  $logrepo;
+    public $logrepo;
 
     public function __construct(LogRepository $logRepositoryInstance)
     {
@@ -18,11 +19,12 @@ class UserLog implements  SystemLogInterface
     public function generateLogs($message)
     {
         $msg = $message;
-        $this->logrepo->saveLog($msg);
-        return 'This is an output log from user';
+
+        return $this->logrepo->saveLog($msg);
     }
 
-    public function testLog(){
+    public function testLog()
+    {
         return 'This is an output log from system Created';
     }
 }

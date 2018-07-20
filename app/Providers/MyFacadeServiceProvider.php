@@ -32,13 +32,16 @@ class MyFacadeServiceProvider extends ServiceProvider
     public function register()
     {
         //
+        $this->app->bind(Logs::class);
+
+        $this->app->bind(LogRepository::class, function ($app) {
+            return new LogRepository($app->make(Logs::class));
+        });
 
         $this->app->bind(SystemLogInterface::class, function ($app) {
             return new SystemLog($app->make(LogRepository::class));
         });
-        $this->app->bind(LogRepository::class, function ($app) {
-            return new LogRepository($app->make(Logs::class));
-        });
-        $this->app->bind(Logs::class, Logs::class);
+
+
     }
 }
